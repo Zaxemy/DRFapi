@@ -10,6 +10,7 @@ from rest_framework.parsers import JSONParser
 
 
 class WomenSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Women
-        fields = ("title", "content", "category")
+        fields = ("title", "content", "category", "user", "is_published")
